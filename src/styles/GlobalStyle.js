@@ -1,10 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  /* RESET GLOBAL */
-  *,
-  *::before,
-  *::after {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,55 +9,87 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 100%;
-    scroll-behavior: smooth;
   }
 
   body {
-    min-height: 100dvh; /* CORRETO PARA iOS */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: system-ui, sans-serif;
     background: #020617;
     color: #e5e7eb;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* MUITO IMPORTANTE */
+    text-align: center;
+
+
+
   }
 
-  /* IMAGENS RESPONSIVAS */
+
   img {
     max-width: 100%;
+    min-width: auto;
+    width: 100%;
     height: auto;
     display: block;
   }
 
-  /* TEXTO PADRÃO */
-  p {
-    line-height: 1.6;
+  text{
+    align-items: center;
+    margin: 0;
+    margin-bottom: 0;
   }
 
-  /* LINKS */
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  /* MOBILE ADJUSTMENTS */
   @media (max-width: 768px) {
     html {
-      font-size: 95%;
+      font-size: 90%;
+      width: 100%;
+      height: auto;
+    }
+
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      height: auto;
     }
   }
 
   @media (max-width: 480px) {
     html {
-      font-size: 90%;
+      font-size: 80%;
+      width: 100%;
+      height: auto;
+    }
+
+    
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      height: auto;
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 320px) {
     html {
-      font-size: 85%;
+      font-size: 70%;
+      width: 100%;
+      height: auto;
     }
+
+    
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      height: auto;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+
   }
+
 `;
+
+
 
 export default GlobalStyle;
