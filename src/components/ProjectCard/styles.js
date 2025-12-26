@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   background: #5f0f57ff;
-  color: #f5f5f5;
+  //color: #f5f5f5;
   min-height: 120px;
   padding: 1.5rem;
   border-radius: 8px;
@@ -35,14 +35,15 @@ export const Techs = styled.span`
 export const Links = styled.div`
   display: flex;
   gap: 1rem;
-  color:white;
+  margin-top: 1rem;
 
   a {
     font-size: 0.9rem;
-    color: ${({ theme }) => theme.colors.white };
+    color: white;
 
     &:hover {
       text-decoration: underline;
+      color: #7657ffff;
     }
   }
 `;

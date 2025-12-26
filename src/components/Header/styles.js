@@ -26,4 +26,28 @@ export const Nav = styled.nav`
       color: ${({ theme }) => theme.colors.text};
     }
   }
+
+  
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (max-width: 480px) {
+    gap: 1rem;
+    a {
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 320px) {
+    gap: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      font-size: 0.875rem;
+    }
+  }
 `

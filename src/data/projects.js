@@ -14,10 +14,11 @@ export const projects = [
    {
     id: 2,
     title: 'Template Restaurante',
-    description: 'Portfolio pessoal desenvolvido com React e styled-components.',
+    description: 'Template de restaurante desenvolvido com React e styledponents.',
     techs: ['React', 'Vite', 'Styled-components'],
     github: 'https://github.com/Fred-creat/Templates-Restaurante',
     demo: '',
+    
   },
 
    {

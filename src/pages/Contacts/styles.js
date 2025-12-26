@@ -59,7 +59,17 @@ export const Right = styled.div`
 /* TEXTOS */
 export const Title = styled.h1`
   font-size: 2.5rem;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.blue};
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 1.8rem;
+    text-align: center;
+  }
 `;
 
 export const Text = styled.p`
@@ -81,10 +91,12 @@ export const ContactItem = styled.a`
   color: ${({ theme }) => theme.colors.text};
   transition: color 0.3s;
   color: #dbe1e9ff;
+ 
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }
+
 `;
 
 /* FORM */
@@ -116,7 +128,7 @@ export const TextArea = styled.textarea`
   border-radius: 6px;
   border: 1px solid #1e293b;
   //background: #020617;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.blue};
   resize: vertical;
   min-height: 140px;
 

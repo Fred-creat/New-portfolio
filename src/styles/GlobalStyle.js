@@ -16,7 +16,11 @@ const GlobalStyle = createGlobalStyle`
     background: #020617;
     color: #e5e7eb;
     overflow-x: hidden; /* MUITO IMPORTANTE */
+
+
+
   }
+
 
   img {
     max-width: 100%;
