@@ -12,17 +12,11 @@ const fadeUp = keyframes`
 `;
 
 export const AnimatedLeft = styled.div`
-  position: relative;
-  z-index: 1;
-  pointer-events: auto;
-  animation: ${fadeUp} 0.6s ease both;
+  animation: ${fadeUp} 0.6s ease forwards;
 `;
 
 export const AnimatedRight = styled.div`
-  position: relative;
-  z-index: 1;
-  pointer-events: auto;
-  animation: ${fadeUp} 0.6s ease both;
+  animation: ${fadeUp} 0.6s ease forwards;
   animation-delay: 0.15s;
 `;
 
@@ -75,7 +69,7 @@ export const Title = styled.h1`
   @media (max-width: 320px) {
     font-size: 1.8rem;
     text-align: center;
-  }
+    }
 `;
 
 export const Text = styled.p`
