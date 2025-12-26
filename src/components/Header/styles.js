@@ -11,16 +11,20 @@ export const HeaderContainer = styled.header`
   color: ${({ theme }) => theme.colors.text};
    background-color: ${({ theme }) => theme.colors.background};
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+ //outline: none;
+
 `
 
 export const Nav = styled.nav`
   display: flex;
-  gap: 1.5rem;
+  gap: 1.9rem;
 
   a {
     color: ${({ theme }) => theme.colors.muted};
     transition: color 0.3s;
-    font-size: 1.125rem;
+    font-size: 2.125rem;
+    text-decoration: none;
+    outline: none;
 
     &:hover {
       color: ${({ theme }) => theme.colors.text};
