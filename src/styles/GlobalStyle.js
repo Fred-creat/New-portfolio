@@ -9,6 +9,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+  * {
+  pointer-events: auto;
+}
+
+
 
   html {
     font-size: 100%;
@@ -42,6 +47,12 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+  
+a,
+button {
+  pointer-events: auto;
+  cursor: pointer;
+}
 
   /* MOBILE ADJUSTMENTS */
   @media (max-width: 768px) {

@@ -12,11 +12,17 @@ const fadeUp = keyframes`
 `;
 
 export const AnimatedLeft = styled.div`
-  animation: ${fadeUp} 0.6s ease forwards;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  animation: ${fadeUp} 0.6s ease both;
 `;
 
 export const AnimatedRight = styled.div`
-  animation: ${fadeUp} 0.6s ease forwards;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  animation: ${fadeUp} 0.6s ease both;
   animation-delay: 0.15s;
 `;
 
