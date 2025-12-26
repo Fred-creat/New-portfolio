@@ -1,7 +1,7 @@
 
 
 
-import { FooterContainer, FooterText } from './styles';
+import{ FooterContainer, FooterText } from './Styles';
 
 function Footer() {
   const year = new Date().getFullYear();

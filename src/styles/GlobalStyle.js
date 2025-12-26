@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     background: #020617;
     color: #e5e7eb;
     overflow-x: hidden; /* MUITO IMPORTANTE */
+    text-align: center;
 
 
 
@@ -24,9 +25,71 @@ const GlobalStyle = createGlobalStyle`
 
   img {
     max-width: 100%;
+    min-width: auto;
+    width: 100%;
     height: auto;
     display: block;
   }
+
+  text{
+    align-items: center;
+    margin: 0;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    html {
+      font-size: 90%;
+      width: 100%;
+      height: auto;
+    }
+
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    html {
+      font-size: 80%;
+      width: 100%;
+      height: auto;
+    }
+
+    
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 320px) {
+    html {
+      font-size: 70%;
+      width: 100%;
+      height: auto;
+    }
+
+    
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      height: auto;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+
+  }
+
 `;
+
+
 
 export default GlobalStyle;
