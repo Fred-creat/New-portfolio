@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   max-width: 100%;
+  max-height: 100dvh;
   
   margin: 0 auto;
   padding: 2rem;
@@ -17,12 +18,17 @@ export const HeaderContainer = styled.header`
 
 export const Nav = styled.nav`
   display: flex;
-  gap: 1.9rem;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 500;
+  width: 80%;
 
   a {
     color: ${({ theme }) => theme.colors.muted};
     transition: color 0.3s;
-    font-size: 2.125rem;
+    font-size: 1.150rem;
     text-decoration: none;
     outline: none;
 
@@ -31,27 +37,4 @@ export const Nav = styled.nav`
     }
   }
 
-  
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  @media (max-width: 480px) {
-    gap: 1rem;
-    a {
-      font-size: 1rem;
-    }
-  }
-
-  @media (min-width: 320px) {
-    gap: 0.5rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    a {
-      font-size: 0.875rem;
-    }
-  }
 `
