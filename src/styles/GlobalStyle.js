@@ -66,6 +66,22 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  
+  @media (max-width: 353px) {
+    html {
+      font-size: 80%;
+      width: 100%;
+      height: auto;
+    }
+
+    
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      height: auto;
+    }
+  }
+
   @media (max-width: 320px) {
     html {
       font-size: 70%;

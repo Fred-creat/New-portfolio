@@ -14,6 +14,15 @@ export const HeaderContainer = styled.header`
   border-top: 1px solid rgba(255, 255, 255, 0.1);
  //outline: none;
 
+ 
+  @media screen and (min-width: 353px) {
+    gap: 1.5rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 `
 
 export const Nav = styled.nav`
@@ -35,6 +44,11 @@ export const Nav = styled.nav`
     &:hover {
       color: ${({ theme }) => theme.colors.text};
     }
+  }
+
+  @media screen and (min-width: 353px) {
+    gap: 1.5rem;
+    font-size: 1rem;
   }
 
 `

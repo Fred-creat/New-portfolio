@@ -26,7 +26,9 @@ export const FooterContainer = styled.footer`
     @media (max-width: 320px) {
         flex-direction: column;
         padding: 0 1rem;
-        margin-top: 31rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        width: 100%;
     }
        
 `;
