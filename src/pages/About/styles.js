@@ -1,76 +1,59 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const AboutContainer = styled.section`
-display: flex;
-//background-color: #441b37ff;
-flex-direction: column;
-justify-content: center;
-position: relative;
-align-items: center;
-  max-width: ${({ theme }) => theme.layout.minWidth};
+  width: min(
+    calc(100% - ${({ theme }) => theme.layout.pageInset}),
+    ${({ theme }) => theme.layout.maxWidth}
+  );
   margin: 0 auto;
- // padding: 4rem 2rem;
- // border-radius: 8px;
-  width: 60%;
-  height: 300px;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-
-  @media screen and (min-width: 320px) {
-    width: 90%;
-    background-color: #441b37ff;
-   
-   height: 500px;
-   display: flex;
-   position: relative;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   text-align: center;
-   margin-top: 2rem;
-   margin-bottom: 2rem;
-  }
-
-   @media screen and (min-width: 353px) {
-    width: 90%;
-    background-color: #441b37ff;
-   height: 600px;
-   display: flex;
-   position: relative;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   text-align: center;
-   margin-top: 2rem;
-   margin-bottom: 2rem;
-
-   h2 {
-      font-size: 2.2rem;
-      margin-top: 1.5;
-   }
-  }
-`;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+`
 
 export const AboutText = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  text-align: center; 
-  max-width: 600px;
-  color: #dde1e8ff;
-    line-height: 1.6;
-    //margin-top: 1rem;
-   // margin-bottom: 10rem;
+  max-width: 760px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 8px;
+  background: rgba(17, 24, 39, 0.72);
 
-    h2 {
-      font-size: 2rem;
-      
-    }
+  span {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
 
-    p {
-      font-size: 1.150rem;
-      line-height: 1.8;
-    }
-`;
+  h1 {
+    max-width: 720px;
+    margin-bottom: 1.5rem;
+    color: ${({ theme }) => theme.colors.white};
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.08;
+  }
+
+  p {
+    max-width: 68ch;
+    color: ${({ theme }) => theme.colors.muted};
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  p + p {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.25rem;
+  }
+`
+
+export const HighlightList = styled.ul`
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  padding-left: 1.2rem;
+  color: ${({ theme }) => theme.colors.text};
+  line-height: 1.6;
+`

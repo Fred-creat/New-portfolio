@@ -1,164 +1,179 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 const fadeUp = keyframes`
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-`;
+`
 
 export const AnimatedLeft = styled.div`
-  animation: ${fadeUp} 0.6s ease forwards;
-`;
+  animation: ${fadeUp} 0.5s ease forwards;
+`
 
 export const AnimatedRight = styled.div`
-  animation: ${fadeUp} 0.6s ease forwards;
-  animation-delay: 0.15s;
-`;
+  animation: ${fadeUp} 0.5s ease forwards;
+  animation-delay: 0.12s;
+`
 
-/* CONTAINER GERAL */
 export const Container = styled.section`
-  max-width: ${({ theme }) => theme.layout.maxWidth};
+  width: min(
+    calc(100% - ${({ theme }) => theme.layout.pageInset}),
+    ${({ theme }) => theme.layout.maxWidth}
+  );
   margin: 0 auto;
-  padding: 4rem 2rem;
-  
-`;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+`
 
-/* GRID 2 COLUNAS */
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 4rem);
   align-items: start;
-  margin-bottom: 6rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 820px) {
     grid-template-columns: 1fr;
   }
-`;
+`
 
-/* COLUNA ESQUERDA */
 export const Left = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.25rem;
 
-`;
-
-/* COLUNA DIREITA */
-export const Right = styled.div`
-  display: flex;
-  flex-direction: column;
-  
-`;
-
-/* TEXTOS */
-export const Title = styled.h1`
-  font-size: 2.5rem;
-  color: ${({ theme }) => theme.colors.blue};
-
-  @media (max-width: 480px) {
-    font-size: 2rem;
-    text-align: center;
+  span {
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
   }
+`
 
-  @media (max-width: 320px) {
-    font-size: 1.8rem;
-    text-align: center;
-    }
-`;
+export const Right = styled.div`
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 8px;
+  background: ${({ theme }) => theme.colors.surface};
+
+  @media (max-width: 420px) {
+    padding: 1rem;
+  }
+`
+
+export const Title = styled.h1`
+  color: ${({ theme }) => theme.colors.white};
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.08;
+`
 
 export const Text = styled.p`
-  max-width: 480px;
-  color: ${({ theme }) => theme.colors.white};
-  line-height: 1.6;
-`;
+  max-width: 520px;
+  color: ${({ theme }) => theme.colors.muted};
+  line-height: 1.7;
+`
 
-/* LINKS */
 export const ContactList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  
-`;
+  margin-top: 1rem;
+`
 
 export const ContactItem = styled.a`
-  font-size: 1rem;
+  width: fit-content;
   color: ${({ theme }) => theme.colors.text};
-  transition: color 0.3s;
-  color: #dbe1e9ff;
- 
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }
+`
 
-`;
-
-/* FORM */
 export const Form = styled.form`
-  
-  flex-direction: column;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-`;
+  gap: 1.1rem;
+`
+
+export const Field = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  label {
+    color: ${({ theme }) => theme.colors.text};
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+`
+
+export const HiddenInput = styled.input`
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+`
 
 export const Input = styled.input`
- 
-  padding: 0.9rem 1rem;
-  border-radius: 6px;
-  border: 1px solid #1e293b;
- // background: #020617;
+  min-height: 46px;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};
 
-  &:focus {
-    outline: none;
-    border-color: ${({ theme }) => theme.colors.primary};
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.muted};
   }
-`;
+`
 
 export const TextArea = styled.textarea`
-  padding: 0.9rem 1rem;
-  border-radius: 6px;
-  border: 1px solid #1e293b;
-  //background: #020617;
-  color: ${({ theme }) => theme.colors.blue};
+  min-height: 150px;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
   resize: vertical;
-  min-height: 140px;
 
-  &:focus {
-    outline: none;
-    border-color: ${({ theme }) => theme.colors.primary};
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.muted};
   }
-`;
+`
 
 export const Button = styled.button`
-  margin-top: 0.5rem;
-  padding: 0.9rem;
-  border-radius: 6px;
+  min-height: 46px;
+  margin-top: 0.25rem;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
   border: none;
-  background: ${({ theme }) => theme.colors.white};
-  color: #1a1b1eff;
-  font-weight: 600;
+  background: ${({ theme }) => theme.colors.primary};
+  color: #03111f;
+  font-weight: 800;
   cursor: pointer;
-  transition: transform 0.2s, opacity 0.3s;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 
-  &:hover {
+  &:hover:not(:disabled) {
     transform: translateY(-2px);
-    opacity: 0.9;
   }
-`;
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+`
 
 export const Success = styled.p`
-  color: #22c55e;
-`;
+  color: ${({ theme }) => theme.colors.success};
+  font-weight: 700;
+`
 
 export const Error = styled.p`
-  color: #ef4444;
-`;
+  color: ${({ theme }) => theme.colors.error};
+  font-weight: 700;
+`

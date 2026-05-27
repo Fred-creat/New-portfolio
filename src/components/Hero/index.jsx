@@ -1,26 +1,30 @@
+import { Link } from 'react-router-dom'
+import { HeroActions, HeroContainer, HeroImage, HeroText } from './styles'
+import Logo from '../../assets/foto-fred.png'
 
-
-import { HeroContainer, HeroText,HeroImage } from './styles';
-import Logo from '../../assets/foto-fred.png';
-;
 function Hero() {
+  return (
+    <HeroContainer>
+      <HeroText>
+        <span>Desenvolvedor Front-end</span>
+        <h1>Olá, eu sou Fredson Maikon.</h1>
+        <p>
+          Crio aplicações modernas, performáticas e escaláveis com React,
+          React Native e JavaScript. Gosto de transformar ideias em experiências
+          digitais claras, bonitas e fáceis de usar.
+        </p>
 
+        <HeroActions>
+          <Link to="/projects">Ver projetos</Link>
+          <Link to="/contact">Falar comigo</Link>
+        </HeroActions>
+      </HeroText>
 
-    return (
-        <HeroContainer>
-            <HeroImage>
-                <img src={Logo} alt="Foto Fred"  />
-            </HeroImage>
-            <HeroText>
-
-                <h2>Seja bem-vindo ao meu portfólio!</h2>
-                <p>Crio aplicações modernas, performáticas e escaláveis.
-                Apaixonado por tecnologia e inovação, estou sempre em busca de novos desafios para aprimorar minhas habilidades e contribuir para projetos impactantes.</p>
-               
-               
-            </HeroText>
-        </HeroContainer>
-    );
+      <HeroImage>
+        <img src={Logo} alt="Fredson Maikon" loading="eager" />
+      </HeroImage>
+    </HeroContainer>
+  )
 }
 
-export default Hero;
+export default Hero

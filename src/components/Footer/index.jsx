@@ -1,19 +1,13 @@
-
-
-
-import{ FooterContainer, FooterText } from './Styles';
+import { FooterContainer, FooterText } from './styles'
 
 function Footer() {
-  const year = new Date().getFullYear();
+  const year = new Date().getFullYear()
 
   return (
     <FooterContainer>
-      <FooterText>
-        © {year} Fred — Todos os direitos reservados.
-      </FooterText>
+      <FooterText>© {year} Fredson Maikon. Todos os direitos reservados.</FooterText>
     </FooterContainer>
-  );
+  )
 }
 
-export default Footer;
-
+export default Footer

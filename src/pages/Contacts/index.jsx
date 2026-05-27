@@ -1,64 +1,81 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 import {
-  Container,
-  Grid,
-  Left,
-  Right,
-  Title,
-  Text,
-  ContactList,
-  ContactItem,
-  Form,
-  Input,
-  TextArea,
-  Button,
-  Success,
-  Error,
   AnimatedLeft,
   AnimatedRight,
-} from './styles';
+  Button,
+  ContactItem,
+  ContactList,
+  Container,
+  Error,
+  Field,
+  Form,
+  Grid,
+  HiddenInput,
+  Input,
+  Left,
+  Right,
+  Success,
+  Text,
+  TextArea,
+  Title,
+} from './styles'
+
+const FORM_ENDPOINT = 'https://formspree.io/f/xbdjrolr'
 
 function Contact() {
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState('idle')
 
   async function handleSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
+    e.preventDefault()
 
-    const response = await fetch(
-      'https://formspree.io/f/xbdjrolr',
-      {
+    if (status === 'sending') {
+      return
+    }
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    if (formData.get('_gotcha')) {
+      return
+    }
+
+    setStatus('sending')
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
         method: 'POST',
-        body: new FormData(form),
+        body: formData,
         headers: { Accept: 'application/json' },
-      }
-    );
+      })
 
-    if (response.ok) {
-      setStatus('success');
-      form.reset();
-    } else {
-      setStatus('error');
+      if (!response.ok) {
+        throw new Error('Form submission failed')
+      }
+
+      setStatus('success')
+      form.reset()
+    } catch {
+      setStatus('error')
     }
   }
 
   return (
     <Container>
       <Grid>
-        {/* COLUNA ESQUERDA */}
         <AnimatedLeft>
           <Left>
-            <Title>Contato</Title>
+            <span>Contato</span>
+            <Title>Vamos conversar sobre seu próximo projeto?</Title>
 
             <Text>
               Quer conversar sobre um projeto, oportunidade ou colaboração?
-              Entre em contato comigo ou envie uma mensagem.
+              Entre em contato comigo ou envie uma mensagem pelo formulário.
             </Text>
 
-            <ContactList>
+            <ContactList aria-label="Links de contato">
               <ContactItem href="mailto:fredsonsouzalemos@gmail.com">
-                📧 fredsonsouzalemos@gmail.com
+                fredsonsouzalemos@gmail.com
               </ContactItem>
 
               <ContactItem
@@ -66,7 +83,7 @@ function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                💼 LinkedIn
+                LinkedIn
               </ContactItem>
 
               <ContactItem
@@ -74,34 +91,72 @@ function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                💻 GitHub
+                GitHub
               </ContactItem>
             </ContactList>
           </Left>
         </AnimatedLeft>
 
-        {/* COLUNA DIREITA */}
         <AnimatedRight>
           <Right>
             <Form onSubmit={handleSubmit}>
-              <Input name="name" placeholder="Seu nome" required />
-              <Input type="email" name="email" placeholder="Seu e-mail" required />
-              <TextArea name="message" placeholder="Sua mensagem" required />
-              <Button type="submit">Send</Button>
+              <HiddenInput
+                type="text"
+                name="_gotcha"
+                tabIndex="-1"
+                autoComplete="off"
+                aria-hidden="true"
+              />
 
-              {status === 'success' && (
-                <Success>Mensagem enviada com sucesso!</Success>
-              )}
+              <Field>
+                <label htmlFor="name">Nome</label>
+                <Input
+                  id="name"
+                  name="name"
+                  placeholder="Seu nome"
+                  autoComplete="name"
+                  maxLength="80"
+                  required
+                />
+              </Field>
 
-              {status === 'error' && (
-                <Error>Erro ao enviar. Tente novamente.</Error>
-              )}
+              <Field>
+                <label htmlFor="email">E-mail</label>
+                <Input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="seu@email.com"
+                  autoComplete="email"
+                  maxLength="120"
+                  required
+                />
+              </Field>
+
+              <Field>
+                <label htmlFor="message">Mensagem</label>
+                <TextArea
+                  id="message"
+                  name="message"
+                  placeholder="Conte brevemente sobre o que você precisa"
+                  minLength="10"
+                  maxLength="1200"
+                  required
+                />
+              </Field>
+
+              <Button type="submit" disabled={status === 'sending'}>
+                {status === 'sending' ? 'Enviando...' : 'Enviar mensagem'}
+              </Button>
+
+              {status === 'success' && <Success>Mensagem enviada com sucesso.</Success>}
+              {status === 'error' && <Error>Erro ao enviar. Tente novamente.</Error>}
             </Form>
           </Right>
         </AnimatedRight>
       </Grid>
     </Container>
-  );
+  )
 }
 
-export default Contact;
+export default Contact

@@ -1,17 +1,19 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { HeaderContainer, Nav } from './styles'
+import { Brand, HeaderContainer, Nav } from './styles'
 
 function Header() {
   return (
     <HeaderContainer>
-      <h1>Fredson Maikon</h1>
+      <Brand to="/" aria-label="Ir para a página inicial">
+        Fredson Maikon
+      </Brand>
 
-      <Nav>
+      <Nav aria-label="Navegação principal">
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/projects">Projects</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/about">Sobre</NavLink>
+        <NavLink to="/projects">Projetos</NavLink>
+        <NavLink to="/contact">Contato</NavLink>
       </Nav>
     </HeaderContainer>
   )
