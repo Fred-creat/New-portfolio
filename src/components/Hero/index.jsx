@@ -6,12 +6,12 @@ function Hero() {
   return (
     <HeroContainer>
       <HeroText>
-        <span>Desenvolvedor Front-end</span>
+        <span>Desenvolvedor Full Stack</span>
         <h1>Olá, eu sou Fredson Maikon.</h1>
         <p>
           Crio aplicações modernas, performáticas e escaláveis com React,
-          React Native e JavaScript. Gosto de transformar ideias em experiências
-          digitais claras, bonitas e fáceis de usar.
+          React Native, JavaScript e soluções de backend. Gosto de transformar
+          ideias em experiências digitais claras, bonitas e fáceis de usar.
         </p>
 
         <HeroActions>

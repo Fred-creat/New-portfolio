@@ -22,6 +22,7 @@ import {
 } from './styles'
 
 const FORM_ENDPOINT = 'https://formspree.io/f/xbdjrolr'
+const WHATSAPP_URL = 'https://wa.me/5575998892484'
 
 function Contact() {
   const [status, setStatus] = useState('idle')
@@ -70,10 +71,15 @@ function Contact() {
 
             <Text>
               Quer conversar sobre um projeto, oportunidade ou colaboração?
-              Entre em contato comigo ou envie uma mensagem pelo formulário.
+              Entre em contato comigo pelo WhatsApp, e-mail ou envie uma mensagem
+              pelo formulário.
             </Text>
 
             <ContactList aria-label="Links de contato">
+              <ContactItem href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </ContactItem>
+
               <ContactItem href="mailto:fredsonsouzalemos@gmail.com">
                 fredsonsouzalemos@gmail.com
               </ContactItem>
