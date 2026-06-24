@@ -67,12 +67,12 @@ function Contact() {
         <AnimatedLeft>
           <Left>
             <span>Contato</span>
-            <Title>Vamos conversar sobre seu próximo projeto?</Title>
+            <Title>Tem um produto para lançar ou um sistema para escalar?</Title>
 
             <Text>
-              Quer conversar sobre um projeto, oportunidade ou colaboração?
-              Entre em contato comigo pelo WhatsApp, e-mail ou envie uma mensagem
-              pelo formulário.
+              Posso ajudar a transformar sua ideia em uma aplicação completa, modernizar
+              um produto existente ou integrar automações e inteligência artificial à sua
+              operação. Conte-me sobre o desafio.
             </Text>
 
             <ContactList aria-label="Links de contato">
@@ -144,7 +144,7 @@ function Contact() {
                 <TextArea
                   id="message"
                   name="message"
-                  placeholder="Conte brevemente sobre o que você precisa"
+                  placeholder="Qual problema ou oportunidade você quer transformar em software?"
                   minLength="10"
                   maxLength="1200"
                   required
@@ -155,8 +155,8 @@ function Contact() {
                 {status === 'sending' ? 'Enviando...' : 'Enviar mensagem'}
               </Button>
 
-              {status === 'success' && <Success>Mensagem enviada com sucesso.</Success>}
-              {status === 'error' && <Error>Erro ao enviar. Tente novamente.</Error>}
+              {status === 'success' && <Success role="status">Mensagem enviada com sucesso.</Success>}
+              {status === 'error' && <Error role="alert">Erro ao enviar. Tente novamente.</Error>}
             </Form>
           </Right>
         </AnimatedRight>

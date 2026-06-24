@@ -1,96 +1,83 @@
 import styled from 'styled-components'
 
 export const HeroContainer = styled.section`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
   align-items: center;
-  min-height: min(760px, calc(100dvh - 6rem));
-  width: 100%;
-  gap: clamp(2rem, 6vw, 5rem);
-  padding: clamp(3rem, 7vw, 6rem) 0;
+  min-height: min(820px, calc(100dvh - 5rem));
+  gap: clamp(2.5rem, 8vw, 7rem);
+  padding: clamp(3.5rem, 8vw, 7rem) 0;
 
   @media (max-width: 820px) {
-    flex-direction: column-reverse;
-    justify-content: center;
-    text-align: center;
+    grid-template-columns: 1fr;
     min-height: auto;
   }
 `
 
-export const HeroImage = styled.div`
-  flex: 0 1 420px;
-  width: min(100%, clamp(14rem, 55vw, 420px));
+export const Availability = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 0.8rem;
+  font-weight: 700;
 
-  img {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
-  }
-
-  @media (max-width: 820px) {
-    flex: none;
-    width: min(100%, 22rem);
-  }
-
-  @media (max-width: 380px) {
-    width: min(100%, 18rem);
+  i {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.success};
+    box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12);
   }
 `
 
 export const HeroText = styled.div`
-  max-width: 620px;
-
-  span {
-    display: inline-flex;
-    margin-bottom: 1rem;
-    color: ${({ theme }) => theme.colors.primary};
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
+  position: relative;
+  z-index: 1;
 
   h1 {
+    max-width: 820px;
     color: ${({ theme }) => theme.colors.white};
-    font-size: clamp(2.15rem, 10vw, 4.8rem);
-    line-height: 1;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.75rem, 7.2vw, 6rem);
+    font-weight: 760;
+    letter-spacing: -0.055em;
+    line-height: 0.95;
   }
 
-  p {
-    max-width: 58ch;
-    line-height: 1.75;
-    font-size: clamp(1rem, 2.5vw, 1.1rem);
+  h1 em {
+    color: ${({ theme }) => theme.colors.primary};
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+  }
+
+  > p {
+    max-width: 61ch;
+    margin-top: 1.75rem;
     color: ${({ theme }) => theme.colors.muted};
-  }
-
-  @media (max-width: 820px) {
-    p {
-      margin: 0 auto;
-    }
+    font-size: clamp(1rem, 2vw, 1.12rem);
+    line-height: 1.75;
   }
 `
 
 export const HeroActions = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.9rem;
   margin-top: 2rem;
   flex-wrap: wrap;
 
   a {
-    flex: 0 1 auto;
-    min-height: 44px;
+    min-height: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.8rem 1.1rem;
-    border-radius: 8px;
+    gap: 0.75rem;
+    padding: 0.85rem 1.15rem;
+    border-radius: 10px;
     border: 1px solid ${({ theme }) => theme.colors.border};
     color: ${({ theme }) => theme.colors.text};
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 750;
     transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
   }
 
@@ -105,13 +92,78 @@ export const HeroActions = styled.div`
     border-color: ${({ theme }) => theme.colors.primary};
   }
 
-  @media (max-width: 820px) {
-    justify-content: center;
-  }
-
   @media (max-width: 420px) {
     a {
       width: 100%;
     }
+  }
+`
+
+export const Stack = styled.div`
+  display: flex;
+  gap: 0.65rem 1.1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+  color: ${({ theme }) => theme.colors.muted};
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+
+  span::before {
+    content: '/';
+    margin-right: 0.4rem;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`
+
+export const HeroImage = styled.div`
+  width: 100%;
+  max-width: 390px;
+  justify-self: end;
+
+  > div {
+    position: relative;
+    padding: 0.65rem;
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: 180px 180px 22px 22px;
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  > div::after {
+    content: '';
+    position: absolute;
+    inset: 10% -10% auto auto;
+    z-index: -1;
+    width: 60%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.primary};
+    opacity: 0.15;
+    filter: blur(50px);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 170px 170px 14px 14px;
+    filter: saturate(0.86) contrast(1.04);
+  }
+
+  > p {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.8rem;
+    color: ${({ theme }) => theme.colors.muted};
+    font-size: 0.72rem;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 820px) {
+    max-width: 340px;
+    justify-self: center;
+    grid-row: 1;
   }
 `

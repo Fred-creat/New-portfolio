@@ -6,14 +6,14 @@ function Header() {
   return (
     <HeaderContainer>
       <Brand to="/" aria-label="Ir para a página inicial">
-        Fredson Maikon
+        Fredson<span>.</span>
       </Brand>
 
       <Nav aria-label="Navegação principal">
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/">Início</NavLink>
         <NavLink to="/about">Sobre</NavLink>
         <NavLink to="/projects">Projetos</NavLink>
-        <NavLink to="/contact">Contato</NavLink>
+        <NavLink className="contact-link" to="/contact">Vamos conversar</NavLink>
       </Nav>
     </HeaderContainer>
   )

@@ -2,23 +2,26 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const HeaderContainer = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 50;
   width: min(
     calc(100% - ${({ theme }) => theme.layout.pageInset}),
     ${({ theme }) => theme.layout.maxWidth}
   );
   margin: 0 auto;
-  padding: 1.25rem 0;
+  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: ${({ theme }) => theme.colors.text};
   gap: 1.5rem;
+  background: rgba(8, 11, 18, 0.8);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 
   @media screen and (max-width: 640px) {
-    flex-direction: column;
-    justify-content: center;
-    padding: 1rem 0;
-    gap: 0.85rem;
+    gap: 0.5rem;
   }
 `
 
@@ -28,6 +31,10 @@ export const Brand = styled(Link)`
   font-weight: 800;
   letter-spacing: 0;
   text-decoration: none;
+
+  span {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `
 
 export const Nav = styled.nav`
@@ -50,6 +57,24 @@ export const Nav = styled.nav`
     &.active {
       color: ${({ theme }) => theme.colors.text};
       background: rgba(148, 163, 184, 0.12);
+    }
+  }
+
+  .contact-link {
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    color: ${({ theme }) => theme.colors.text};
+  }
+
+  @media screen and (max-width: 640px) {
+    gap: 0.2rem;
+
+    a {
+      padding-inline: 0.45rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-link {
+      display: none;
     }
   }
 

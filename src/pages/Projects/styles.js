@@ -6,19 +6,20 @@ export const Container = styled.section`
     ${({ theme }) => theme.layout.maxWidth}
   );
   margin: 0 auto;
-  padding: clamp(3rem, 8vw, 6rem) 0;
+  padding: clamp(4rem, 9vw, 7rem) 0;
 `
 
 export const Intro = styled.div`
-  max-width: 680px;
-  margin-bottom: 2.5rem;
+  max-width: 820px;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
 
   span {
     display: inline-flex;
     margin-bottom: 0.8rem;
     color: ${({ theme }) => theme.colors.primary};
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
@@ -32,12 +33,17 @@ export const Intro = styled.div`
 export const Title = styled.h1`
   margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.white};
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  line-height: 1.08;
+  font-size: clamp(2.35rem, 6vw, 4.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
 `
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
 `

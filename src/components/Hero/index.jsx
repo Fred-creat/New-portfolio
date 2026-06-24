@@ -1,27 +1,35 @@
 import { Link } from 'react-router-dom'
-import { HeroActions, HeroContainer, HeroImage, HeroText } from './styles'
+import { Availability, HeroActions, HeroContainer, HeroImage, HeroText, Stack } from './styles'
 import Logo from '../../assets/foto-fred.png'
 
 function Hero() {
   return (
     <HeroContainer>
       <HeroText>
-        <span>Desenvolvedor Full Stack</span>
-        <h1>Olá, eu sou Fredson Maikon.</h1>
+        <Availability>
+          <i aria-hidden="true" /> Software Engineer · Full Stack · AI
+        </Availability>
+        <h1>Construo software que transforma <em>ideias em negócios.</em></h1>
         <p>
-          Crio aplicações modernas, performáticas e escaláveis com React,
-          React Native, JavaScript e soluções de backend. Gosto de transformar
-          ideias em experiências digitais claras, bonitas e fáceis de usar.
+          Desenvolvo produtos SaaS, aplicações web e mobile, automações e soluções com
+          inteligência artificial — da arquitetura à experiência final do usuário.
         </p>
 
         <HeroActions>
-          <Link to="/projects">Ver projetos</Link>
-          <Link to="/contact">Falar comigo</Link>
+          <Link to="/contact">Quero construir um produto <span aria-hidden="true">→</span></Link>
+          <Link to="/projects">Ver resultados</Link>
         </HeroActions>
+
+        <Stack aria-label="Principais tecnologias">
+          <span>TypeScript</span><span>Next.js</span><span>Node.js</span><span>AI · LLMs</span>
+        </Stack>
       </HeroText>
 
       <HeroImage>
-        <img src={Logo} alt="Fredson Maikon" loading="eager" />
+        <div>
+          <img src={Logo} alt="Fredson Maikon, desenvolvedor full stack" loading="eager" />
+        </div>
+        <p><span>Baseado na Bahia</span><span>Brasil · remoto</span></p>
       </HeroImage>
     </HeroContainer>
   )
